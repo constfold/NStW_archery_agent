@@ -1,0 +1,112 @@
+diff -r  
+105,108c105
+< 		// sleep(DELAY_SHORT); 
+< 		.StartCutscene(); 
+< 		player = Players.GetPlayerId(0); 
+< 		playerCtrl = player.GetType("OvertopController"); 
+---
+> 		sleep(DELAY_SHORT); 
+110,117d105
+< 		// Move me to 
+< 		playerPos = player.GetPos();
+< 		playerPos = Vec3f(.m_spawnTargets.GetTargetByID(1).GetPos().GetX()+TARGET_VERY_FAST_MOVE_SPEED*90, playerPos.GetY(), playerPos.GetZ());
+< 		WaitForAny(DELAY_SHORT, playerCtrl.GotoPos(playerPos, 0, Vec3f(0.0f, 0.0f, 0)));
+< 		playerPos = Vec3f(playerPos.GetX(), playerPos.GetY()+1.0f, playerPos.GetZ());
+< 		WaitForAny(DELAY_SHORT, playerCtrl.GotoPos(playerPos, 0, Vec3f(0.0f, 0.0f, 0)));
+< 		Level.FreezeHumanStdPlatformers(false); 
+< 		Level.AllowCutsceneBlackBars(false); 
+119,130d105
+< 		DIK_W = 0x11;
+< 		DIK_S = 0x1F;
+< 		// Press W for ts*1000 ms
+< 		blSpeedMax = 12;
+< 		arSpeed = 6;
+< 		arSpeedMax = 16;
+< 		FramePerSecond = 60;
+< 		t2 = (.m_spawnTargets.GetTargetByID(1).GetPos().GetY()-player.GetPos().GetY())/(blSpeedMax);
+< 		t = (player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(1).GetPos().GetX())/(TARGET_VERY_FAST_MOVE_SPEED*FramePerSecond)+2*DELAY_TIGHT;
+< 		print("t2: ", t2, " t: ", t);
+< 		Dinput(DIK_W, (t-t2)*1000.f, 0);
+< 		Dinput(DIK_W, 0, 1);
+153,159d124
+< 		t2 = abs(.m_spawnTargets.GetTargetByID(6).GetPos().GetY()-player.GetPos().GetY())/(arSpeed);
+< 		t1 = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(6).GetPos().GetX())/(TARGET_FAST_MOVE_SPEED*FramePerSecond);
+< 		t_1 = t1 - t2;
+< 		print("t2: ", t2, " t1: ", t1, "t: ", t_1);
+< 		Dinput(DIK_S, (t_1-0.125)*1000.f, 1);
+< 		Dinput(DIK_S, 0.125*1000.f, 0);
+< 		Dinput(DIK_S, 100.f, 1);
+161,166d124
+< 		t2 = abs(.m_spawnTargets.GetTargetByID(3).GetPos().GetY()-player.GetPos().GetY())/(arSpeedMax);
+< 		t1 = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(3).GetPos().GetX())/(TARGET_VERY_FAST_MOVE_SPEED*FramePerSecond)+1;
+< 		t_2 = max(0, (t1 - t2)-t_1-0.1);
+< 		print("t2: ", t2, " t1: ", t1, "t: ", t_2);
+< 		Dinput(DIK_S, (t_2*1000.f), 0);
+< 		Dinput(DIK_S, 100.f, 1);
+168,173d124
+< 		t2 = abs(.m_spawnTargets.GetTargetByID(4).GetPos().GetY()-player.GetPos().GetY())/(arSpeedMax);
+< 		t1 = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(4).GetPos().GetX())/(TARGET_VERY_FAST_MOVE_SPEED*FramePerSecond)+1+1.2;
+< 		t_3 = max(0, (t1 - t2)-t_2-0.1-t_1-0.1);
+< 		print("t2: ", t2, " t1: ", t1, "t: ", t_3);
+< 		Dinput(DIK_S, t_3*1000.f, 0);
+< 		Dinput(DIK_S, 100.f, 1);
+175,180d124
+< 		t2 = abs(.m_spawnTargets.GetTargetByID(5).GetPos().GetY()-player.GetPos().GetY())/(arSpeedMax);
+< 		t1 = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(5).GetPos().GetX())/(TARGET_FAST_MOVE_SPEED*FramePerSecond)+1+1.2+0.8;
+< 		t_4 = max(0, (t1 - t2)-t_3-0.1-t_2-0.1-t_1-0.1);
+< 		print("t2: ", t2, " t1: ", t1, "t: ", t_4);
+< 		Dinput(DIK_S, t_4*1000.f, 0);
+< 		Dinput(DIK_S, 0, 1);
+196,200d136
+< 		t2 = abs(.m_spawnTargets.GetTargetByID(2).GetPos().GetY()-player.GetPos().GetY())/(blSpeedMax);
+< 		t = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(2).GetPos().GetX())/(TARGET_VERY_FAST_MOVE_SPEED*FramePerSecond)+DELAY_LONG+2*DELAY_TIGHT;
+< 		print("t2: ", t2, " t: ", t);
+< 		Dinput(DIK_W, max(0, t-t2-abs(t_1+t_2+t_3+t_4+0.1*3-1-1.2-0.8))*1000.f, 0);
+< 		Dinput(DIK_W, 0, 1);
+217,222d150
+< 		tfar = abs(.m_spawnTargets.GetTargetByID(1).GetPos().GetY()-player.GetPos().GetY())/(arSpeedMax);
+< 		t = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(1).GetPos().GetX())/(TARGET_FAST_MOVE_SPEED*FramePerSecond);
+< 		t_1 = t - tfar;
+< 		print("t2: ", tfar, " t: ", t_1);
+< 		Dinput(DIK_S, (t_1)*1000.f, 0);
+< 		Dinput(DIK_S, 100.f, 1);
+224,229d150
+< 		tfar = abs(.m_spawnTargets.GetTargetByID(2).GetPos().GetY()-player.GetPos().GetY())/(arSpeedMax);
+< 		t = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(2).GetPos().GetX())/(TARGET_FAST_MOVE_SPEED*FramePerSecond)+1.5;
+< 		t_2 = t - tfar-t_1-0.1;
+< 		print("t2: ", tfar, " t: ", t_2);
+< 		Dinput(DIK_S, max(0, t_2)*1000.f, 0);
+< 		Dinput(DIK_S, 100.f, 1);
+231,236d150
+< 		tfar = abs(.m_spawnTargets.GetTargetByID(3).GetPos().GetY()-player.GetPos().GetY())/(arSpeedMax);
+< 		t = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(3).GetPos().GetX())/(TARGET_FAST_MOVE_SPEED*FramePerSecond)+1.5+1.25;
+< 		t_3 = t - tfar-t_1-0.1-t_2-0.1;
+< 		print("t2: ", tfar, " t: ", t_3);
+< 		Dinput(DIK_S, max(0, t_3)*1000.f, 0);
+< 		Dinput(DIK_S, 0, 1);
+252,256d163
+< 		t2 = abs(.m_spawnTargets.GetTargetByID(2).GetPos().GetY()-player.GetPos().GetY())/(blSpeedMax);
+< 		t = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(2).GetPos().GetX())/(TARGET_VERY_FAST_MOVE_SPEED*FramePerSecond)+DELAY_LONG+1+2*DELAY_TIGHT;
+< 		print("t2: ", t2, " t: ", t);
+< 		Dinput(DIK_W, max(0, t-t2-abs(t_1+t_2+t_3+0.1*2-1.5-1.25))*1000.f, 0);
+< 		Dinput(DIK_W, 0, 1);
+273,278d178
+< 		t2 = abs(.m_spawnTargets.GetTargetByID(1).GetPos().GetY()-player.GetPos().GetY())/(blSpeedMax);
+< 		t = abs(player.GetPos().GetX()-.m_spawnTargets.GetTargetByID(1).GetPos().GetX())/(TARGET_VERY_FAST_MOVE_SPEED*FramePerSecond)+2*DELAY_TIGHT;
+< 		t_1 = t - t2;
+< 		print("t2: ", t2, " t: ", t);
+< 		Dinput(DIK_W, max(0, t_1)*1000.f, 0);
+< 		Dinput(DIK_W, 100.f, 1);
+280,291d178
+< 		DIK_UP = 0xC8;
+< 		DIK_LEFT = 0xCB;
+< 		playerSpeed = 0.1;
+< 		Dinput(DIK_LEFT, (0.8)*1000.f, 0);
+< 		Dinput(DIK_LEFT, 10.f, 1);
+< 		Dinput(DIK_UP, 0.01f*1000, 0);
+< 		Dinput(DIK_UP, 10.f, 1);
+< 		t2 = abs(.m_spawnTargets.GetTargetByID(2).GetPos().GetY()-player.GetPos().GetY())/(blSpeedMax);
+< 		t = abs(player.GetPos().GetX()-playerSpeed*FramePerSecond*0.8-.m_spawnTargets.GetTargetByID(2).GetPos().GetX())/(TARGET_VERY_FAST_MOVE_SPEED*FramePerSecond)+4*DELAY_TIGHT+DELAY_SHORT+0.95;
+< 		print("t2: ", t2, " t: ", t);
+< 		Dinput(DIK_W, max(0.55, t-t2-t_1-0.1+2*DELAY_TIGHT-0.8-0.03)*1000.f, 0);
+< 		Dinput(DIK_W, 100.f, 1);
